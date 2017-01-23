@@ -7,9 +7,33 @@
 //
 
 #include <stdio.h>
+#include <math.h>
+#define MAX 20
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+unsigned int factorial (int a){
+    unsigned int product=1;
+    for (int i=a; i>0;--i){
+        product*=i;
+    }
+    return product;
+}
+int main() {
+    int num;
+    printf("Enter an integer number between 1 and 20: ");
+    scanf("%d",&num);
+    
+    if (num<1){
+        printf("Error: number must be larger than 0\n");
+    }
+    else if(num>=MAX){
+        num=MAX;
+    }
+    double digit=1.0;
+    
+    for (int i=0;i<num;++i){
+        digit+=(1.0/factorial(i+1));
+    }
+    
+    printf("Exponential is %.*lf\n",num,digit);
     return 0;
 }
